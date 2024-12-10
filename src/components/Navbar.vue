@@ -17,7 +17,7 @@
           <router-link v-if="isAdmin" to="/admin/analytics" class="hover:underline">Dashboard</router-link>
   
           <!-- Show Admin Login link if not logged in as admin -->
-          <router-link v-else to="/sign-in" class="bg-indigo-500 px-3 py-1 rounded hover:bg-indigo-600">
+          <router-link v-else to="/sign-in" class="bg-green-500 px-3 py-1 rounded hover:bg-green-600">
             Login
           </router-link>
         </div>

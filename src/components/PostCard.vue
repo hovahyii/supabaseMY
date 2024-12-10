@@ -21,11 +21,23 @@ export default {
   },
   computed: {
     formattedDate() {
-      return new Date(this.post.created_at).toLocaleString()
+      const date = new Date(this.post.created_at);
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0'); // getMonth() is 0-indexed
+      const year = date.getFullYear();
+      
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      const seconds = String(date.getSeconds()).padStart(2, '0');
+      
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      const formattedHours = hours % 12 || 12; // Convert to 12-hour format
+
+      return `${day}-${month}-${year}, ${formattedHours}:${minutes}:${seconds} ${ampm}`;
     },
     avatarUrl() {
       // Placeholder avatar (avatar left, name/message/timestamp to right)
-      return 'https://via.placeholder.com/40'
+      return 'https://via.placeholder.com/40';
     }
   }
 }
